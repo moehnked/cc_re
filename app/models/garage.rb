@@ -3,11 +3,14 @@ require_relative "user"
 
 class Garage < ApplicationRecord
 	belongs_to :user
-	has_many :cars
+	has_many :car
+	attr_accessor :cars
 
-	def setup(user= User.new)
-		self.user = user
-		self.cars = []
+	def setup(params)
+		self.user = params.fetch(:user, User.new)
+		self.capacity = params.fetch(:capacity, 1)
+		@cars = []
+		self.car_count = 0
 	end
 
 	def total_coolness
@@ -22,7 +25,7 @@ class Garage < ApplicationRecord
 	 	cars.empty?
 	end
 
-	def car_count
+	def count_cars
 	 	cars.size
 	end
 end

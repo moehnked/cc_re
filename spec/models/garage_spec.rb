@@ -19,7 +19,7 @@ RSpec.describe Garage, type: :model do
     		expect(garage.cars.length).to eq(1)
         garage.add
         expect(garage.cars.length).to eq(2)
-        expect(garage.car_count).to eq(2)
+        expect(garage.count_cars).to eq(2)
     	end
 
       it "expects a garage with at least one car with a positive coolness value to not be lame" do

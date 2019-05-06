@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   belongs_to :garage 
+  #attr_accessor :username, :email, :garage
 
   def setup(params)
   	self.username = params.fetch(:username, "default_username")
