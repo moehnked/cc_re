@@ -33,6 +33,13 @@ RSpec.describe Car, type: :model do
   	end
 
     it "can calculate power to weight ratios for itself" do
+      car.setup(year: 1999, 
+        make: "Ford", 
+        model: "Explorer", 
+        coolness_value: 1, 
+        horsepower: 160,
+        torque: 225,
+        weight: 3891 )
       expect(car.calculate_power_to_weight_ratio).to eq(0.0411)
     end
   end
